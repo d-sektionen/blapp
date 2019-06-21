@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Blapp</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="uid_header">Tag UID</string>
+    <string name="general_header">General</string>
+
+    <!-- General Preferences -->
+    <string name="url_title">Page URL</string>
+
+    <!-- UID Preferences -->
+    <string name="uid_hex_title">Hexadecimal output</string>
+    <string name="uid_reverse_title">Reverse output</string>
+    <string name="uid_enable_title">Enable UID output</string>
+    <string name="uid_enter_title">Press enter after input</string>
+</resources>
