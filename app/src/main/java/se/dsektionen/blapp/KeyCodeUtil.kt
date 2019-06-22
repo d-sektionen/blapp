@@ -57,7 +57,7 @@ class KeyCodeUtil {
         fun stringToKeyCodeList(string: String): List<Int>{
             return string
                 .toLowerCase()
-                .map { char -> map.getOrDefault(char, KeyEvent.KEYCODE_UNKNOWN)}
+                .map { char -> if (map[char] != null) map[char]!! else KeyEvent.KEYCODE_UNKNOWN }
                 .filter { int -> int != KeyEvent.KEYCODE_UNKNOWN }
         }
     }

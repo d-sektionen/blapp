@@ -19,7 +19,7 @@ import android.provider.Settings.ACTION_NFC_SETTINGS
 
 class MainActivity : AppCompatActivity(), Nfc.NfcListener {
 
-    var nfc: Nfc? = null
+    private var nfc: Nfc? = null
     private var hex: Boolean = false
     private var reverse: Boolean = false
     private var uidEnable: Boolean = false

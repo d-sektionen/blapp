@@ -22,11 +22,10 @@ class Nfc(
             val action = intent.action
 
             if (action == NfcAdapter.ACTION_ADAPTER_STATE_CHANGED) {
-                val state = intent.getIntExtra(
+                when (intent.getIntExtra(
                     NfcAdapter.EXTRA_ADAPTER_STATE,
                     NfcAdapter.STATE_OFF
-                )
-                when (state) {
+                )) {
                     NfcAdapter.STATE_OFF -> nfcListener.nfcUpdated()
                     NfcAdapter.STATE_ON -> nfcListener.nfcUpdated()
                 }

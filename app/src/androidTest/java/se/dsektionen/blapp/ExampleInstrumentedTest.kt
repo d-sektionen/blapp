@@ -19,6 +19,6 @@ class ExampleInstrumentedTest {
     fun useAppContext() {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getTargetContext()
-        assertEquals("se.dsektionen.nfckeypressemulator", appContext.packageName)
+        assertEquals("se.dsektionen.blapp", appContext.packageName)
     }
 }
