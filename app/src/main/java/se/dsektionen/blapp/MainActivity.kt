@@ -33,9 +33,9 @@ class MainActivity : AppCompatActivity(), Nfc.NfcListener {
 
         if (reverse) ubyteArray = ubyteArray.reversedArray()
 
-        val uint: UInt = ubyteArray.fold(0.toUInt()) { acc: UInt, byte -> (acc shl 8) + byte.toUInt() }
+        val uLong: ULong = ubyteArray.fold(0.toULong()) { acc: ULong, byte -> (acc shl 8) + byte.toULong() }
 
-        val rv = uint.toString(if (hex) 16 else 10)
+        val rv = uLong.toString(if (hex) 16 else 10)
 
         return if (enter) rv + '\n' else rv
     }
