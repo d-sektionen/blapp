@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="url_default">https://medlem.d-sektionen.se/blipp</string>
+    <string name="url_default">https://medlem.d-sektionen.se/checkin</string>
     <bool name="uid_enable_default">true</bool>
     <bool name="uid_hex_default">false</bool>
     <bool name="uid_reverse_default">true</bool>

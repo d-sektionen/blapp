@@ -1,5 +1,6 @@
 package se.dsektionen.blapp
 
+import android.Manifest
 import android.content.Intent
 import android.nfc.NfcAdapter
 import android.nfc.Tag
@@ -15,6 +16,21 @@ import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import android.provider.Settings.ACTION_NFC_SETTINGS
+import android.webkit.ConsoleMessage
+import android.webkit.WebChromeClient
+import android.util.Log
+import android.webkit.PermissionRequest
+import android.os.Build
+import android.annotation.TargetApi
+import androidx.core.app.ActivityCompat
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
+import android.Manifest.permission
+
+
+
+
+
 
 
 class MainActivity : AppCompatActivity(), Nfc.NfcListener {
@@ -83,8 +99,29 @@ class MainActivity : AppCompatActivity(), Nfc.NfcListener {
 
         // init web view
         webView.settings.javaScriptEnabled = true
+        webView.settings.domStorageEnabled = true
         webView.webViewClient = WebViewClient()
+        webView.webChromeClient = object : WebChromeClient() {
+            override fun onConsoleMessage(consoleMessage: ConsoleMessage): Boolean {
+                Log.d("WebView", consoleMessage.message())
+                return true
+            }
+
+            override fun onPermissionRequest(request: PermissionRequest) {
+                requestPermission(permission.CAMERA)
+
+            }
+        }
         webView.loadUrl(url)
+    }
+
+    private fun requestPermission(permission: String) {
+        val grant = ContextCompat.checkSelfPermission(this, permission)
+        if (grant != PackageManager.PERMISSION_GRANTED) {
+            val permissionList = arrayOfNulls<String>(1)
+            permissionList[0] = permission
+            ActivityCompat.requestPermissions(this, permissionList, 1)
+        }
     }
 
     private fun dispatchKeyEvents(keys: List<Int>) {
