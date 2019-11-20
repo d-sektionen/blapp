@@ -83,6 +83,7 @@ class MainActivity : AppCompatActivity(), Nfc.NfcListener {
 
         // init web view
         webView.settings.javaScriptEnabled = true
+        webView.settings.domStorageEnabled = true
         webView.webViewClient = WebViewClient()
         webView.loadUrl(url)
     }
